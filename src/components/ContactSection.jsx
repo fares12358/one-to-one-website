@@ -2,12 +2,12 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaLink } from "react-icons/fa";
 
 const contactInfo = [
-  { icon: FaEnvelope,     label: "Email",   value: "info@metixeco.hr", link: "mailto:info@metixeco.hr" },
-  { icon: FaPhone,        label: "Phone",   value: "+385 1 234 5678",  link: "tel:+38512345678" },
-  { icon: FaMapMarkerAlt, label: "Address", value: "Zagreb, Croatia",  link: null },
+  { icon: FaEnvelope, label: "Email", value: "info@valley-seeds.com", link: "mailto:info@valley-seeds.com" },
+  { icon: FaPhone, label: "Phone", value: "+02 012 876 369 86", link: "tel:+0201287636986" },
+  { icon: FaLink , label: "website", value: "www.valley-seeds.com", link: "www.valley-seeds.com" },
 ];
 
 export default function ContactSection() {
@@ -45,10 +45,10 @@ export default function ContactSection() {
           <div className="inline-block px-4 py-2 bg-[#8CCB8A]/20 text-[#2F6E49] rounded-full mb-4">
             Contact
           </div>
-          <h2 className="text-[#2F6E49] mb-6">Get In Touch</h2>
+          <h2 className="text-[#2F6E49] mb-6">Ready to Grow
+            With Us?</h2>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
-            Want to improve green infrastructure or start a climate resilience project?
-            METIX ECO is here for you.
+            Whether you're a farmer, distributor, or global seed company — let's build something together.
           </p>
         </motion.div>
 

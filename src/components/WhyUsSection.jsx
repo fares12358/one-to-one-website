@@ -1,114 +1,67 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import Link from "next/link";
-import {
-  FaLeaf, FaDna, FaEye, FaQrcode, FaFlask, FaAward,
-  FaShieldAlt, FaUsers, FaArrowRight,
-} from "react-icons/fa";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const reasons = [
-  { icon: FaLeaf,      title: "Natural Solutions for Climate Challenges",         description: "Scientifically grounded approach to urban greenery" },
-  { icon: FaDna,       title: "Genetically Verified, Climate-Resistant Material", description: "Certified genetic material adapted for the future" },
-  { icon: FaEye,       title: "Transparent Supply Chain",                         description: "Full visibility from production to planting" },
-  { icon: FaQrcode,    title: "QR Tracking for Every Seedling",                   description: "Unique identifier for every plant" },
-  { icon: FaFlask,     title: "Advanced Biotechnology & In Vitro Programs",       description: "Modern biotech for outstanding results" },
-  { icon: FaAward,     title: "CO₂ Certificates & ESG Compliance",               description: "Blockchain-verified carbon footprint certificates" },
-  { icon: FaShieldAlt, title: "6-Year Warranty",                                  description: "Long-term quality guarantee and support" },
-  { icon: FaUsers,     title: "International Scientific Partnerships",             description: "Collaboration with universities and research institutes" },
+  {
+    num: '01',
+    title: 'Rigorous Field Trials',
+    desc: 'All varieties are tested in our experimental fields before reaching the market — perfectly adapted to Egyptian conditions.',
+  },
+  {
+    num: '02',
+    title: 'Advanced Digital Management',
+    desc: 'Odoo ERP ensures the highest transparency, precision, and financial accuracy for every partner relationship.',
+  },
+  {
+    num: '03',
+    title: 'Integrated Supply Chain',
+    desc: 'Global sourcing via Valley Seeds + powerful domestic distribution via Apex Seeds — one seamless operation.',
+  },
+  {
+    num: '04',
+    title: 'Extensive Market Reach',
+    desc: '560+ active clients guaranteeing strong presence and rapid penetration across all Egyptian governorates.',
+  },
+  {
+    num: '05',
+    title: 'Dedicated Technical Support',
+    desc: 'Expert agronomists with you from seedling to harvest — ensuring maximum productivity on every crop.',
+  },
 ];
 
-export default function WhyUsSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
+const WhyUsSection = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why" className="py-22 px-12 bg-white">
+      <div className="max-w-[1120px] mx-auto">
+        <div className="inline-flex items-center gap-2.5 text-[10px] tracking-[0.16em] uppercase text-[#4d862b] mb-3.5">
+          <span className="block w-6 h-px bg-[#c9a84c]" />
+          Why Us
+        </div>
 
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-block px-4 py-2 bg-[#8CCB8A]/20 text-[#2F6E49] rounded-full mb-4">
-            Our Advantages
-          </div>
-          {/* bare h2 — sized by globals @layer base (xl = 1.25rem) */}
-          <h2 className="text-[#2F6E49]">Why Choose METIX ECO?</h2>
-        </motion.div>
+        <h2 className="font-serif text-4xl font-normal leading-snug mb-8">
+          Five Reasons to<br />Choose Valley Seeds
+        </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-2.5">
           {reasons.map((reason, index) => (
             <motion.div
-              key={reason.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group flex items-start gap-4 p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-[#8CCB8A]/30"
+              whileHover={{ borderColor: '#8cc63f', boxShadow: '0 4px 20px rgba(140,198,63,0.1)' }}
+              className="grid grid-cols-1 md:grid-cols-[60px_1fr_280px] items-center gap-6 bg-white rounded-[14px] border border-[rgba(140,198,63,0.15)] px-6 py-4.5 transition-all duration-200"
             >
-              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#2F6E49] to-[#8CCB8A] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
-                <reason.icon className="w-6 h-6 text-white" />
-              </div>
-              <div className="flex-1">
-                {/* bare h4 */}
-                <h4 className="text-[#2F6E49] mb-2 group-hover:text-[#8CCB8A] transition-colors">
-                  {reason.title}
-                </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {reason.description}
-                </p>
-              </div>
+              <div className="font-serif text-[28px] text-[#d8edae]">{reason.num}</div>
+              <div className="text-[15px] font-semibold text-[#1a2e0e]">{reason.title}</div>
+              <div className="text-[13px] text-[#6a8050] leading-relaxed">{reason.desc}</div>
             </motion.div>
           ))}
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
-        >
-          {[
-            { value: "100+", label: "Tree Species" },
-            { value: "50+",  label: "Projects per Year" },
-            { value: "15+",  label: "Scientific Partners" },
-            { value: "100%", label: "Blockchain Records" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center p-6 bg-gradient-to-br from-[#2F6E49]/5 to-[#8CCB8A]/10 rounded-xl">
-              <div className="text-[#2F6E49]">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <Link
-            href="/services"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#2F6E49] to-[#8CCB8A] text-white rounded-lg hover:shadow-lg transition-all duration-300"
-          >
-            View Our Services
-            <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="/about"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-[#2F6E49] text-[#2F6E49] rounded-lg hover:bg-[#2F6E49] hover:text-white transition-all duration-300"
-          >
-            Learn More About Us
-            <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
-}
+};
+
+export default WhyUsSection;

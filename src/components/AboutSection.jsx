@@ -1,95 +1,114 @@
-"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+const timelineItems = [
+  {
+    year: '2018',
+    heading: 'Apex Seeds Founded',
+    body: "Launched to elevate Egypt's agricultural sector through elite vegetable seed distribution and on- ground technical support.",
+  },
+{
+  year: '2021',
+    heading: 'Valley Seeds Established',
+      body: "Created as the group's importing arm — directly connecting the global seed market with Egyptian farmers.",
+},
+{
+  year: '2025',
+    heading: '560+ Clients, $700K+ Volume',
+      body: 'Sustained annual growth driven by superior genetics, Odoo-powered transparency, and a partnership-first mindset.',
+  },
+];
 
-export default function AboutSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
+const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-12 items-center">
-
-          {/* Image column */}
+    <section id="about" className="py-22 px-12 bg-[#f5f2eb]">
+      <div className="max-w-[1120px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1643909070454-bbeb9236bc42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMGJpb3RlY2hub2xvZ3klMjBsYWJvcmF0b3J5fGVufDF8fHx8MTc2NDEwNTg4NXww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="METIX ECO Laboratory"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2F6E49]/20 to-transparent" />
+            <div className="inline-flex items-center gap-2.5 text-[10px] tracking-[0.16em] uppercase text-[#4d862b] mb-3.5">
+              <span className="block w-6 h-px bg-[#c9a84c]" />
+              Who we are
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl"
-            >
-              <div className="text-center">
-                <div className="text-[#2F6E49]">15+</div>
-                <div className="text-gray-600 text-sm">Years of Experience</div>
-              </div>
-            </motion.div>
+            <h2 className="font-serif text-4xl font-normal leading-snug mb-8">
+              Rooted in Egypt.<br />Connected to the World.
+            </h2>
+
+            <p className="text-[15px] text-[#3d5228] leading-relaxed mb-4">
+              Apex Seeds was founded in 2018 with a bold ambition: to elevate Egypt's agricultural sector through the distribution of elite vegetable seeds, combining deep field expertise with innovative solutions that genuinely serve the Egyptian farmer.
+            </p>
+
+            <p className="text-[15px] text-[#3d5228] leading-relaxed mb-9">
+              By 2021, our track record in the domestic market led to the founding of Valley Seeds — the group's dedicated importing arm — giving us direct access to the world's most advanced seed genetics and creating a seamless bridge between global innovation and local agriculture.
+            </p>
+
+            <div className="relative pl-7">
+              <div className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-[#8cc63f] to-[#d8edae]" />
+              {timelineItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                  className="relative mb-8 last:mb-0"
+                >
+                  <div className="absolute -left-[22px] top-1.5 w-[11px] h-[11px] rounded-full bg-[#8cc63f] border-2 border-[#f5f2eb] shadow-[0_0_0_3px_rgba(140,198,63,0.2)]" />
+                  <div className="text-[10px] font-semibold text-[#c9a84c] tracking-[0.1em] mb-1 uppercase">
+                    {item.year}
+                  </div>
+                  <div className="text-sm font-semibold mb-1.5 text-[#1a2e0e]">
+                    {item.heading}
+                  </div>
+                  <div className="text-[13px] text-[#6a8050] leading-relaxed">
+                    {item.body}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Text column */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative h-[460px] hidden lg:block"
           >
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: 0.3 }}
-                className="inline-block px-4 py-2 bg-[#8CCB8A]/20 text-[#2F6E49] rounded-full mb-4"
-              >
-                About Us
-              </motion.div>
-              <h2 className="text-[#2F6E49] mb-6">Who We Are</h2>
-            </div>
-
-            <p className="text-gray-700 leading-relaxed">
-              METIX ECO is a Croatian company specializing in the procurement, distribution,
-              and production of genetically resilient plant material for urban and peri-urban
-              spaces. Our team brings together experts from urban forestry, ecology,
-              biotechnology, horticulture, and climate science.
-            </p>
-
-            <p className="text-gray-700 leading-relaxed">
-              Collaboration with universities, research institutes, and laboratories enables
-              us to deliver the highest level of quality and innovation.
-            </p>
-
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="absolute top-0 left-0 right-14 bottom-14 rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(26,46,14,0.18)]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=900&q=82"
+                alt="Agronomist inspecting seedlings"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.6 }}
-              className="grid grid-cols-2 gap-6 pt-6"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="absolute bottom-0 right-0 w-[52%] h-[52%] rounded-[14px] overflow-hidden border-[5px] border-[#f5f2eb] shadow-[0_12px_32px_rgba(26,46,14,0.2)]"
             >
-              <div className="p-4 bg-white rounded-lg shadow-md border border-[#8CCB8A]/20">
-                <div className="text-[#2F6E49]">100%</div>
-                <div className="text-gray-600 text-sm">Transparency</div>
-              </div>
-              <div className="p-4 bg-white rounded-lg shadow-md border border-[#8CCB8A]/20">
-                <div className="text-[#2F6E49]">1000+</div>
-                <div className="text-gray-600 text-sm">Projects</div>
-              </div>
+              <img
+                src="https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?w=500&q=80"
+                alt="Hybrid seeds"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default AboutSection;
