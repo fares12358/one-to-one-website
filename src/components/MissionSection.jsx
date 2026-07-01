@@ -5,8 +5,8 @@ import { motion, useInView } from "framer-motion";
 import { FaLeaf, FaMicroscope, FaNetworkWired } from "react-icons/fa";
 
 const icons = [
-  { Icon: FaLeaf, title: "Nature", color: "from-[#2F6E49] to-[#8CCB8A]" },
-  { Icon: FaMicroscope, title: "Science", color: "from-[#8CCB8A] to-[#2F6E49]" },
+  { Icon: FaLeaf,         title: "Nature",     color: "from-[#2F6E49] to-[#8CCB8A]" },
+  { Icon: FaMicroscope,   title: "Science",    color: "from-[#8CCB8A] to-[#2F6E49]" },
   { Icon: FaNetworkWired, title: "Technology", color: "from-[#2F6E49] to-[#8CCB8A]" },
 ];
 
@@ -26,15 +26,14 @@ export default function MissionSection() {
             className="mb-12"
           >
             <div className="inline-block px-4 py-2 bg-[#8CCB8A]/20 text-[#2F6E49] rounded-full mb-4">
-              Vision & Mission
+              Our Vision
             </div>
             <h2 className="text-[#2F6E49] mb-6">Our Mission</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              To become the most trusted institution in Egypt's vegetable seed sector — the definitive gateway connecting global agricultural innovation with the Egyptian farmer, contributing to a sustainable agricultural renaissance and reinforcing national food security.
-            </p>
-            <h2 className="text-[#2F6E49] mb-6">Our Mission</h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              To empower Egyptian farmers with seeds of superior genetics, backed by rigorous scientific field trials and expert agronomist support. We forge long-term strategic partnerships with the world's leading seed companies, leveraging cutting-edge technology to guarantee accuracy, transparency, and maximum yield.
+              Our mission is to create more climate-resilient, sustainable, and biologically
+              rich urban environments through scientifically selected species, high-quality
+              planting material, advanced biotechnology, and transparent management through
+              digital technologies.
             </p>
           </motion.div>
 
